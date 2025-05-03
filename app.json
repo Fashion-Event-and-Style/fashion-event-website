@@ -1,0 +1,44 @@
+{
+  "expo": {
+    "name": "fashion-event-app",
+    "slug": "fashion-event-app",
+    "version": "1.0.0",
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 21,
+            "compileSdkVersion": 34,
+            "targetSdkVersion": 34,
+            "buildToolsVersion": "34.0.0",
+            "softwareKeyboardLayoutMode": "resize",
+            "edgeToEdgeEnabled": true
+          },
+          "ios": {
+            "deploymentTarget": "13.0"
+          }
+        }
+      ],
+      [
+        "@react-native-firebase/app",
+        {
+          "android": {
+            "googleServicesFile": "./google-services.json"
+          },
+          "ios": {
+            "googleServicesFile": "./GoogleService-Info.plist"
+          }
+        }
+      ]
+    ],
+    "android": {
+      "package": "com.fashioneventapp",
+      "googleServicesFile": "/google-services.json"
+    },
+    "ios": {
+      "bundleIdentifier": "com.fashioneventapp",
+      "googleServicesFile": "/GoogleService-Info.plist"
+    }
+  }
+}
