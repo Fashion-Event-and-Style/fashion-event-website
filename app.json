@@ -1,44 +1,40 @@
 {
   "expo": {
-    "name": "fashion-event-app",
-    "slug": "fashion-event-app",
+    "name": "Fashion-App",
+    "slug": "Fashion-App",
     "version": "1.0.0",
-    "plugins": [
-      [
-        "expo-build-properties",
-        {
-          "android": {
-            "minSdkVersion": 21,
-            "compileSdkVersion": 34,
-            "targetSdkVersion": 34,
-            "buildToolsVersion": "34.0.0",
-            "softwareKeyboardLayoutMode": "resize",
-            "edgeToEdgeEnabled": true
-          },
-          "ios": {
-            "deploymentTarget": "13.0"
-          }
-        }
-      ],
-      [
-        "@react-native-firebase/app",
-        {
-          "android": {
-            "googleServicesFile": "./google-services.json"
-          },
-          "ios": {
-            "googleServicesFile": "./GoogleService-Info.plist"
-          }
-        }
-      ]
-    ],
-    "android": {
-      "package": "com.fashioneventapp",
-      "googleServicesFile": "/google-services.json"
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
     },
     "ios": {
-      "bundleIdentifier": "com.fashioneventapp",
-      "googleServicesFile": "/GoogleService-Info.plist"
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.FashionApp",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "com.anonymous.FashionApp"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-build-properties"
+    ],
+    "extra": {
+      
     }
   }
 }

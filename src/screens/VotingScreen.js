@@ -1,9 +1,9 @@
-import React,{ useState } from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, FlatList, Dimensions } from 'react-native';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
-const VotingScreen = ({ navigation }) => {
+const VotingScreen = ({ }) => {
   const [votingItems, setVotingItems] = useState([
     {
       id: '1',

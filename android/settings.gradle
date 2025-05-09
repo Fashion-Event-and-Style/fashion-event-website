@@ -31,7 +31,7 @@ extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
 }
 expoAutolinking.useExpoModules()
 
-rootProject.name = 'fashioneventapp'
+rootProject.name = 'Fashion-App'
 
 expoAutolinking.useExpoVersionCatalog()
 

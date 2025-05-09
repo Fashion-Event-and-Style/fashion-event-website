@@ -1,11 +1,29 @@
-import React from 'react';
+// EventScreen.js
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, FlatList, Image } from 'react-native';
-import { fashionEvents } from './FashionEventData'; 
+
+
 
 const EventScreen = () => {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(firestore, "events"));
+        const fetchedEvents = querySnapshot.docs.map(doc => doc.data());
+        setEvents(fetchedEvents);
+      } catch (error) {
+        console.error("Error fetching events: ", error);
+      }
+    };
+    
+    fetchEvents();
+  }, []);
+
   const renderItem = ({ item }) => (
     <View style={styles.eventCard}>
-      <Image source={item.image} style={styles.eventImage} />
+      <Image source={{ uri: item.image }} style={styles.eventImage} />
       <Text style={styles.eventTitle}>{item.title}</Text>
       <Text>{item.date}</Text>
       <Text>{item.location}</Text>
@@ -16,8 +34,8 @@ const EventScreen = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Upcoming Fashion Events</Text>
       <FlatList
-        data={fashionEvents}
-        keyExtractor={(item) => item.id}
+        data={events}
+        keyExtractor={(item, index) => index.toString()}
         renderItem={renderItem}
       />
     </View>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "862718077597",
+    "project_id": "fashion-event-app-ab310",
+    "storage_bucket": "fashion-event-app-ab310.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862718077597:android:908d1074e838ab47fb4274",
+        "android_client_info": {
+          "package_name": "com.fashion.fashionEventApp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuxn2H12F0pMA2nrakQ4Ql5MRoVU37BP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

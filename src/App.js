@@ -1,40 +1,48 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { View, ActivityIndicator } from 'react-native';
 import AppNavigator from './navigation/AppNavigator';
-import 'react-native-gesture-handler';
-import { initializeApp } from '@react-native-firebase/app';
-import auth from '@react-native-firebase/auth';
-
-// Your Firebase config (from google-services.json/GoogleService-Info.plist)
-const firebaseConfig = {
-  // Example config (replace with your actual values)
-  apiKey: "YOUR_API_KEY",
-  authDomain: "your-app.firebaseapp.com",
-  projectId: "your-app",
-  storageBucket: "your-app.appspot.com",
-  messagingSenderId: "123456789",
-  appId: "1:123456789:web:abc123def456"
-};
 
 const App = () => {
-  const [firebaseInitialized, setFirebaseInitialized] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Initialize Firebase
-    initializeApp(firebaseConfig);
-    
-    // Optional: Check auth state to confirm initialization
-    const unsubscribe = auth().onAuthStateChanged(() => {
-      setFirebaseInitialized(true);
-    });
-    
-    return unsubscribe;
+    // Simulate app initialization (loading fonts, checking auth status, etc.)
+    const initApp = async () => {
+      // Add your actual initialization logic here:
+      // - Load fonts (await Font.loadAsync(...))
+      // - Check authentication status
+      // - Load any essential data
+      
+      await new Promise(resolve => setTimeout(resolve, 1500)); // Remove this in production
+      setIsLoading(false);
+    };
+
+    initApp();
   }, []);
 
-  if (!firebaseInitialized) {
-    return null; // Or a loading screen
+  if (isLoading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#FF6B6B" />
+      </View>
+    );
   }
 
-  return <AppNavigator />;
+  return (
+    <NavigationContainer>
+      <AppNavigator />
+    </NavigationContainer>
+  );
+};
+
+const styles = {
+  loadingContainer: { 
+    flex: 1, 
+    justifyContent: 'center', 
+    alignItems: 'center',
+    backgroundColor: '#fff' // Add background color to prevent flash
+  }
 };
 
 export default App;

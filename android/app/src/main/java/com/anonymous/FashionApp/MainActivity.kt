@@ -1,4 +1,4 @@
-package com.fashioneventapp
+package com.anonymous.FashionApp
 
 import android.os.Build
 import android.os.Bundle
