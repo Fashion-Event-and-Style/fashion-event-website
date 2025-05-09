@@ -22,6 +22,7 @@ const SettingsScreen = ({ navigation }) => {
         : [...prev.colors, color]
     }));
   };
+// Contribution by Rahemet Gisho - May 2025
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
