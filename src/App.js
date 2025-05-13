@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { View, ActivityIndicator } from 'react-native';
-import AppNavigator from './navigation/AppNavigator';
+import { AppProvider } from './context/AppContext'; // Global state provider
+import AppNavigator from './navigation/AppNavigator'; // Main navigation stack
+
+import ErrorBoundary from "./utils/ErrorBoundary"
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate app initialization (loading fonts, checking auth status, etc.)
     const initApp = async () => {
-      // Add your actual initialization logic here:
-      // - Load fonts (await Font.loadAsync(...))
-      // - Check authentication status
-      // - Load any essential data
-      
-      await new Promise(resolve => setTimeout(resolve, 1500)); // Remove this in production
+      // Simulate loading delay (e.g., loading fonts, auth, etc.)
+      await new Promise(resolve => setTimeout(resolve, 1500)); 
       setIsLoading(false);
     };
 
@@ -30,9 +28,13 @@ const App = () => {
   }
 
   return (
-    <NavigationContainer>
-      <AppNavigator />
-    </NavigationContainer>
+     <ErrorBoundary>
+    <AppProvider>
+      <NavigationContainer>
+        <AppNavigator />
+      </NavigationContainer>
+    </AppProvider>
+    </ErrorBoundary>
   );
 };
 
@@ -41,8 +43,10 @@ const styles = {
     flex: 1, 
     justifyContent: 'center', 
     alignItems: 'center',
-    backgroundColor: '#fff' // Add background color to prevent flash
+    backgroundColor: '#fff'
   }
 };
 
 export default App;
+
+//////////////////////////////////////////////////////
