@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
-import { mockUser } from './FashionEventData'; // Adjusted import path
+import { mockUser } from '../data/FashionEventData'; // Adjusted import path
 
 const SettingsScreen = ({ navigation }) => {
   const [preferences, setPreferences] = useState({
